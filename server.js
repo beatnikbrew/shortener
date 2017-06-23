@@ -14,7 +14,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/shorten/:url', (req, res) => {
-  db.collection('urls').insertOne( {
+  db.collection('urls').insertOne( { //Just a test. Next step is to verify this makes something when put on Heroku
     "url" : {
       "target"  : req.params,
       "short"   : "shortened"
