@@ -1,6 +1,6 @@
 const express = require('express');
-
-let app = express();
+var conn = MongoClient.connect('mongodb://localhost:27017/test');
+var app = express();
 
 app.listen(port, () => {
   console.log("listening on " + port);
@@ -14,6 +14,12 @@ app.get('/', (req, res) => {
 });
 
 app.get('/shorten/:url', (req, res) => {
+  db.collection('urls').insertOne( {
+    "url" : {
+      "target"  : req.params,
+      "short"   : "shortened"
+    }
+  });
   //take :url and save it to db. (If not already present)
   //Take index of saved url, set it to base 58, return that and save that to db
   //if url is already present, then if it matches a base 58 entry, redirect to corresponding url
