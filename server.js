@@ -1,13 +1,20 @@
-const express = require('express');
-var conn = MongoClient.connect('mongodb://localhost:27017/test');
+//Setup
+var express = require('express');
 var app = express();
+var mongoose = require('mongoose');
 
-app.listen(port, () => {
-  console.log("listening on " + port);
-});
+//Config
+mongoose.connect('mongodb://localhost:27017/test');
 
-const alphabet = "123456789qwertyupasdfghjklzxcvbnmQWERTYUPASDFGHJKLZXCVBNM";
-const base = alphabet.length();
+
+//Start app
+app.listen(8080);
+console.log("App listening on port 8080");
+
+//URL encoding algorithm
+
+var alphabet = "123456789qwertyupasdfghjklzxcvbnmQWERTYUPASDFGHJKLZXCVBNM";
+var base = alphabet.length();
 
 app.get('/', (req, res) => {
   app.send("This is a URL shortener. Append the URL to /shorten");
