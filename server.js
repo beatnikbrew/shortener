@@ -12,7 +12,7 @@ app.listen(8080);
 console.log("App listening on port 8080");
 
 //Model
-var utlEntry = mongoose.model('urlEntry', {
+var urlEntry = mongoose.model('urlEntry', {
   URL : string,
   shortURL : string
 });
@@ -26,16 +26,14 @@ app.get('/', (req, res) => {
   app.send("This is a URL shortener. Append the URL to /shorten");
 });
 
+
+//Routes
 app.get('/shorten/:url', (req, res) => {
-  db.collection('urls').insertOne( { //Just a test. Next step is to verify this makes something when put on Heroku
-    "url" : {
-      "target"  : req.params,
-      "short"   : "shortened"
-    }
+  //create entry for url
+  var newurl = urlEntry.create({
+    URL : req.params.url,
+    shortURL : encode(req.params.url)
   });
-  //take :url and save it to db. (If not already present)
-  //Take index of saved url, set it to base 58, return that and save that to db
-  //if url is already present, then if it matches a base 58 entry, redirect to corresponding url
 });
 
 
