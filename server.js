@@ -28,13 +28,27 @@ app.get('/', (req, res) => {
 
 
 //Routes
+//
+//shorten URL at /shorten
 app.get('/shorten/:url', (req, res) => {
   //create entry for url
   var newurl = urlEntry.create({
     URL : req.params.url,
     shortURL : encode(req.params.url)
+  }, (err, url) => {
+    if(err)
+      res.send(err);
+
+    //return shortened url
+    res.json(newurl.shortURL);
   });
 });
+
+//reroute url at /
+app.get('/:url', (req, res) => {
+
+});
+
 
 
 
