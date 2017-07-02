@@ -11,6 +11,12 @@ mongoose.connect('mongodb://localhost:27017/test');
 app.listen(8080);
 console.log("App listening on port 8080");
 
+//Model
+var utlEntry = mongoose.model('urlEntry', {
+  URL : string,
+  shortURL : string
+});
+
 //URL encoding algorithm
 
 var alphabet = "123456789qwertyupasdfghjklzxcvbnmQWERTYUPASDFGHJKLZXCVBNM";
