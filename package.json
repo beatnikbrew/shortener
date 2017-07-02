@@ -2,5 +2,26 @@
   "devDependencies": {
     "chai": "^4.0.2",
     "chai-http": "^3.0.0"
-  }
+  },
+  "dependencies": {
+    "express": "^4.15.3",
+    "mongoose": "^4.11.0"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "name": "shortener",
+  "description": "",
+  "version": "1.0.0",
+  "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/beatnikbrew/shortener.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/beatnikbrew/shortener/issues"
+  },
+  "homepage": "https://github.com/beatnikbrew/shortener#readme"
 }
