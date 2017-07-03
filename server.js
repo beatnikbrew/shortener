@@ -47,6 +47,11 @@ app.get('/shorten/:url', (req, res) => {
 //reroute url at /
 app.get('/:url', (req, res) => {
 
+  //get appropriate url
+  var redirect = urlEntry.findOne( {'shortURL' : req.params.url}, (err, entry) => {
+    if(err) res.send(err);
+    res.redirect(redirect.URL);
+  });
 });
 
 
