@@ -9,7 +9,6 @@ mongoose.connect('mongodb://heroku_2kflwrv5:48drmchcg35kuord0f95h4ikr0@ds061506.
 
 //Start app
 app.listen(process.env.PORT || 8080);
-console.log("App listening on port 8080");
 
 //Model
 var urlEntry = mongoose.model('urlEntry', {
@@ -34,7 +33,7 @@ app.get('/shorten/:url', (req, res) => {
   //create entry for url
   var newurl = urlEntry.create({
     URL : req.params.url,
-    shortURL : encode(id) //Going to need to see when I can access a created object's ID. Might need separate function
+    shortURL : encode(newurl._id) //Going to need to see when I can access a created object's ID. Might need separate function
   }, (err, url) => {
     if(err)
       res.send(err);
