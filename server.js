@@ -30,15 +30,16 @@ app.get('/shorten/:url', (req, res) => {
   //create entry for url
   var newurl = urlEntry.create({
     URL : req.params.url,
-    shortURL : encode(newurl._id) //Going to need to see when I can access a created object's ID. Might need separate function
-  }, (err, url) => {
-    if(err)
-      res.send(err);
+  });
+   // shortURL : encode(newurl._id) //Going to need to see when I can access a created object's ID. Might need separate function
+  // }, (err, url) => {
+  //   if(err)
+  //     res.send(err);
 
-    //return shortened url
+  //   //return shortened url
+    newurl.shortURL = encode(newurl._id);
     res.json(newurl.shortURL);
     console.log(newurl);
-  });
 });
 
 //reroute url at /
