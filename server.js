@@ -13,8 +13,8 @@ console.log("App listening on port 8080");
 
 //Model
 var urlEntry = mongoose.model('urlEntry', {
-  URL : string,
-  shortURL : string
+  URL : String,
+  shortURL : String
 });
 
 //URL encoding algorithm
