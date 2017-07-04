@@ -27,14 +27,16 @@ var base = alphabet.length;
 //
 //shorten URL at /shorten
 app.get('/shorten/:url', (req, res) => {
+  console.log(req.params.url);
   //create entry for url
   var newurl = urlEntry.create({
     URL : req.params.url
   });
+  console.log(newurl);
   console.log(newurl._id);
   newurl.shortURL = encode(newurl._id);
   res.json(newurl.shortURL);
-  console.log(newurl);
+  
 });
 
 //reroute url at /
