@@ -8,7 +8,7 @@ mongoose.connect('mongodb://heroku_2kflwrv5:48drmchcg35kuord0f95h4ikr0@ds061506.
 
 
 //Start app
-app.listen(8080);
+app.listen(process.env.PORT || 8080);
 console.log("App listening on port 8080");
 
 //Model
