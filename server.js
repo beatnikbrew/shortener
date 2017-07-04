@@ -40,6 +40,7 @@ app.get('/shorten/:url', (req, res) => {
 
     //return shortened url
     res.json(newurl.shortURL);
+    console.log(newurl);
   });
 });
 
