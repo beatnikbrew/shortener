@@ -4,7 +4,7 @@ var app = express();
 var mongoose = require('mongoose');
 
 //Config
-mongoose.connect('mongodb://localhost:27017/test');
+mongoose.connect('mongodb://heroku_2kflwrv5:48drmchcg35kuord0f95h4ikr0@ds061506.mlab.com:61506/heroku_2kflwrv5' || 'mongodb://localhost:27017/test');
 
 
 //Start app
@@ -34,7 +34,7 @@ app.get('/shorten/:url', (req, res) => {
   //create entry for url
   var newurl = urlEntry.create({
     URL : req.params.url,
-    shortURL : encode(req.params.url)
+    shortURL : encode(id) //Going to need to see when I can access a created object's ID. Might need separate function
   }, (err, url) => {
     if(err)
       res.send(err);
