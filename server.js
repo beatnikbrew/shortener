@@ -20,7 +20,7 @@ var urlEntry = mongoose.model('urlEntry', {
 //URL encoding algorithm
 
 var alphabet = "123456789qwertyupasdfghjklzxcvbnmQWERTYUPASDFGHJKLZXCVBNM";
-var base = alphabet.length();
+var base = alphabet.length;
 
 app.get('/', (req, res) => {
   app.send("This is a URL shortener. Append the URL to /shorten");
