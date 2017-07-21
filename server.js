@@ -29,13 +29,15 @@ var base = alphabet.length;
 app.get('/shorten/:url', (req, res) => {
   console.log(req.params.url);
   //create entry for url
-  var newurl = urlEntry.create({
+  var newUrl = urlEntry.create({
     URL : req.params.url
   });
-  console.log(newurl);
-  console.log(newurl._id);
-  newurl.shortURL = encode(newurl._id);
-  res.json(newurl.shortURL);
+  //Now I need to look up the document by URL, do the encoding voodoo, and return it
+  
+  console.log(newUrl);
+  console.log(newUrl._id);
+  newurl.shortURL = encode(newUrl._id);
+  res.json(newUrl.shortURL);
   
 });
 
@@ -48,8 +50,6 @@ app.get('/:url', (req, res) => {
     res.redirect(redirect.URL);
   });
 });
-
-
 
 
 // utility function to convert base 10 integer to base 58 string
