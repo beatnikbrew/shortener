@@ -36,7 +36,7 @@ app.get('/shorten/:url', (req, res) => {
   
   console.log(newUrl);
   console.log(newUrl._id);
-  newurl.shortURL = encode(newUrl._id);
+  newUrl.shortURL = encode(newUrl._id);
   res.json(newUrl.shortURL);
   
 });
